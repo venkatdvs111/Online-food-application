@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Food Service</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/font.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info justify-content-center fixed-top">
+        <i class="fas fa-bars text-light" onclick="show()"></i>
+        <a class="navbar-brand" href="#">Aditya Food Service</a>
+    </nav>
+    <main>
+        <div class="row">
+            <div class="col-2 position-fixed mt-5">
+                <ul class="nav flex-column bg-info rounded text-center">
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/">
+                            <i class="fa fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/login">
+                            <i class="fa fa-sign-in mr-2"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/signup">
+                            <i class="fa fa-user-plus mr-2"></i>Signup
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="offset-2 col-9 mt-5 main-body">
+              <div class="wrapper">
+                <nav aria-label="breadcrumb" class="mt-5">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Login</li>
+                    </ol>
+                  </nav>
+                <div class="row">
+                    <div class="col-lg-5 col-11 offset-lg-4 my-5">
+                        <form class="mt-5 card border-black p-3" method="POST" action="/login">
+                            <h1 class="text-center">Login</h1>
+                            <% if(error){ %>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <%= error %> 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                              <% } %>                              
+                            <div class="form-group">
+                                <label for="Email">Email address</label>
+                                <input type="email" name="email" required class="form-control" id="Email" placeholder="Enter email">
+                              </div>
+                            <div class="form-group">
+                              <label for="Password">Password</label>
+                              <input type="password" name="password" required class="form-control" id="Password" placeholder="Enter Password">
+                            </div>
+                            <input type="submit" class="btn btn-info" value="Login">
+                          </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main> 
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/script.js"></script>
+</html>

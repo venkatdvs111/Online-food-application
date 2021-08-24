@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Food Service</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/font.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .jumbotron img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info justify-content-center fixed-top">
+        <i class="fas fa-bars text-light" onclick="show()"></i>
+        <a class="navbar-brand" href="#">Aditya Food Service</a>
+    </nav>
+    <main>
+        <div class="row">
+            <div class="col-2 position-fixed mt-5">
+                <ul class="nav flex-column bg-info rounded text-center">
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/">
+                            <i class="fa fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/profile">
+                            <i class="fa fa-user-circle mr-2"></i>Profile
+                        </a>
+                    </li>
+                    <% if(isOwner == 1){ %>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/additem">
+                            <i class="fa fa-plus-square mr-2"></i>Add item
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/orders">
+                            <i class="fas fa-box-open mr-2"></i>orders
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="offset-2 col-10 mt-5 main-body">
+              <div class="wrapper">
+                <nav aria-label="breadcrumb" class="mt-5">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/">Home</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                    </ol>
+                  </nav>
+                <div class="row profile">
+                    <div class="col-12 p-3">
+                        <div class="jumbotron">
+                            <img src="./uploads/<%= image %>">
+                            <h1 class="display-4"><%=name  %></h1>
+                            <p class="lead"><p><b>Contact info</b></p><%=phone%></p>
+                            <p class="lead"><%=email%></p>
+                            <hr class="my-4">
+                            <button class="btn btn-info">Update details</button>
+                            <a class="btn btn-danger" href="/logout" >Logout</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main> 
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/script.js"></script>
+</html>

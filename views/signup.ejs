@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food Online</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./js/font.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info justify-content-center fixed-top">
+        <i class="fas fa-bars text-light" onclick="show()"></i>
+        <a class="navbar-brand" href="#">Aditya Food Service</a>
+    </nav>
+    <main>
+        <div class="row">
+            <div class="col-2 position-fixed mt-5">
+                <ul class="nav flex-column bg-info rounded text-center">
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/">
+                            <i class="fa fa-home mr-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/login">
+                            <i class="fa fa-sign-in mr-2"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item border-bottom">
+                        <a class="nav-link text-light py-3" href="/signup">
+                            <i class="fa fa-user-plus mr-2"></i>Signup
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="offset-2 col-10 mt-5 main-body">
+              <div class="wrapper">
+              <nav aria-label="breadcrumb" class="mt-5">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Signup</li>
+                </ol>
+              </nav>
+                <div class="row">
+                  <input type="hidden" name="modal" id="modal-open" value="<%= modal %>" >
+                    <div class="col-lg-5 col-12 offset-lg-4 my-5">
+                        <form method="POST" action="/signup" enctype="multipart/form-data" class="mt-5 card border-black p-3">
+                            <h1 class="text-center">Signup</h1>
+                            <div class="form-group">
+                                <label for="Email">Email address</label>
+                                <input type="email" required name="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email" >
+                               <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                              </div>
+                            <div class="form-group">
+                              <label for="Password">Password</label>
+                              <input type="password" required name="password" class="form-control" id="Password" placeholder="Enter Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone number</label>
+                                <input type="number" required name="phone" class="form-control" id="phone" placeholder="Enter  number">
+                              </div>
+                              <div class="custom-file">
+                                <input type="file" required name="photo" class="custom-file-input" id="File">
+                                <label class="custom-file-label" for="File">Upload photo</label>
+                              </div>
+                              <div class="form-group">
+                                <label for="Select">Select User Type</label>
+                                <select class="form-control" required name="role" id="Select">
+                                  <option value="0">Student</option>
+                                  <option value="1">Canteen Owner</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="roll">User Id</label>
+                                <input type="text" name="name" required="true" class="form-control" id="roll" placeholder="Enter roll/canteen name">
+                              </div>
+                            <input type="submit" class="btn btn-info" value="submit">
+                          </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main> 
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Signup Successful</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <img src="./images/green-tick.png" alt="green tick" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <a href="/login" type="button" class="btn btn-primary">Login</a>
+            </div>
+          </div>
+        </div>
+        </div>
+</body>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/script.js"></script>
+<script>
+  if(document.getElementById('modal-open').value == 1){
+    $("#Modal").modal();
+  }
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+</html>
